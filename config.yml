@@ -1,3 +1,7 @@
-bot_name: temp 
-password: temp 
-channel: temp 
+bot_name: 'username for the bot' 
+password: 'oauth_password obtained from twitch' 
+channel:
+  name: 'name of the channel you want this bot for'
+  messages:
+    - 'rotation of messages to display in chat'
+  ht_location: 'location to save highlight requests'
