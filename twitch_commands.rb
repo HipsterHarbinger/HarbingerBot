@@ -4,26 +4,26 @@ require_relative 'stream'
 class TwitchCommands
   include Cinch::Plugin
 
-  match(/game/, method: :game)
+  match(/game$/, method: :game)
   def game(m)
     channel_name = m.channel.name.tr('#', '')
     stream = Stream.new(channel_name)
     m.twitch(stream.game)
   end
 
-  match(/dr/, method: :dangan_ronpa)
+  match(/dr$/, method: :dangan_ronpa)
   def dangan_ronpa(m)
     m.twitch('Dangan Ronpa is a mix of Phoenix Wright and Battle Royale. The characters are locked in a school and forced to murder to escape.')
   end
 
-  match(/uptime/, method: :uptime)
+  match(/uptime$/, method: :uptime)
   def uptime(m)
     channel_name = m.channel.name.tr('#', '')
     stream = Stream.new(channel_name)
     m.twitch(time_diff(string_to_time(stream.created_at), Time.now.utc)) unless stream.nil? 
   end
 
-  match(/ht/, method: :highlightThat)
+  match(/ht$/, method: :highlightThat)
   def highlightThat(m)
     channel_name = m.channel.name.tr('#', '')
     stream = Stream.new(channel_name)
